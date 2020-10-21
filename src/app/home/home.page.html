@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button>Select Image</ion-button>
-  <img [src]="clickedImage" />
+  <ion-button (click)="click()">Select Image</ion-button>
+  {{clickedImage}}
+  <ion-img [src]="clickedImage"  style="height: 200px; width: 200px;"></ion-img>
 </ion-content>

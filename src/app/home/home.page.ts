@@ -8,23 +8,22 @@ import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 })
 export class HomePage {
 	constructor(private camera: Camera) {}
-	clickedImage;
-	options: CameraOptions = {
-		quality: 100,
-		destinationType: this.camera.DestinationType.FILE_URI,
-		encodingType: this.camera.EncodingType.JPEG,
-	};
+	clickedImage:string="Waiting";
+	
 	click() {
-		this.camera.getPicture(this.options).then(
+		this.camera.getPicture({
+			sourceType:this.camera.PictureSourceType.CAMERA,
+			destinationType:this.camera.DestinationType.FILE_URI
+		}).then(
 			(imageData) => {
 				// imageData is either a base64 encoded string or a file URI
 				// If it's base64 (DATA_URL):
-				let base64Image = "data:image/jpeg;base64," + imageData;
-				this.clickedImage = base64Image;
+				this.clickedImage=imageData
 			},
 			(err) => {
 				console.log(err);
 				// Handle error
+				this.clickedImage="hua nhi bhai"
 			},
 		);
 	}
