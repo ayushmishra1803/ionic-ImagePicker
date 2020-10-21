@@ -1,6 +1,6 @@
-import { Camera } from '@ionic-native/Camera/ngx';
-import { Component } from '@angular/core';
 
+import { Component } from "@angular/core";
+import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
 @Component({
 	selector: "app-home",
 	templateUrl: "home.page.html",
